@@ -20,11 +20,11 @@ calulateBagsHavingShinyGold = (bags) => {
       }
     }
   }
-  bags.forEach(ele => {
-    if(ele.checked) count++;
+  bags.forEach((ele) => {
+    if (ele.checked) count++;
   });
-  console.log(count)
-  console.timeEnd("time")
+  console.log("Never thought this would work!... The count is", count);
+  console.timeEnd("time");
 };
 
 readInputData().then((data) => {
