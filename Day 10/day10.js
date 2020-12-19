@@ -3,29 +3,29 @@ async function readInputData() {
   const text = await res.text();
   return text.split("\n"); // manipulating the input...
 }
-// Help from reddit. Learned DP. Great problem. 
+// Help from reddit. Learned DP. Great problem.
 function combinations(value, set, memo = {}) {
-    if (memo[value]) { return memo[value]; }
-    if (value === 0) {
-        memo[value] = 1;
-        return 1;
-    }
-    if (value < 0) {
-        memo[value] = 0;
-        return 0;
-    }
-    if (set.indexOf(value) === -1) {
-        memo[value] = 0;
-        return 0;
-    }
-    memo[value] = ( 
-        combinations(value - 1, set, memo) +
-        combinations(value - 2, set, memo) +
-        combinations(value - 3, set, memo)
-    )
+  if (memo[value]) {
     return memo[value];
+  }
+  if (value === 0) {
+    memo[value] = 1;
+    return 1;
+  }
+  if (value < 0) {
+    memo[value] = 0;
+    return 0;
+  }
+  if (set.indexOf(value) === -1) {
+    memo[value] = 0;
+    return 0;
+  }
+  memo[value] =
+    combinations(value - 1, set, memo) +
+    combinations(value - 2, set, memo) +
+    combinations(value - 3, set, memo);
+  return memo[value];
 }
-
 
 readInputData().then((data) => {
   const numberData = data.map((ele) => parseInt(ele, 10));
@@ -44,5 +44,5 @@ readInputData().then((data) => {
   }
   console.log(countOf1diff * countOf3diff);
 
-  console.log(combinations(deviceRating, sortedData))
+  console.log(combinations(deviceRating, sortedData));
 });

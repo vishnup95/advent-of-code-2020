@@ -177,7 +177,6 @@ processSeats2 = (seatArr) => {
   modifiedArr.push(newArr);
   modifiedArr.unshift(newArr);
 
-
   do {
     let modifiedArrCopy = JSON.parse(JSON.stringify(modifiedArr));
     previousOccupiedSeats = occupiedSeats;
